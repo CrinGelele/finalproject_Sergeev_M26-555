@@ -88,6 +88,8 @@ make demo
 
 ## Демонстрация
 
+![Полный сценарий ValutaTrade Hub](demo/session.gif)
+
 [Запись сценария](demo/session.cast) воспроизводится командой
 `asciinema play demo/session.cast`. Демо использует фиксированные ответы API
 из `tests/fixtures` и отдельный учебный баланс 10 000 USD.
