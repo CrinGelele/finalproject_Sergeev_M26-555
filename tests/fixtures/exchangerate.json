@@ -1,0 +1,5 @@
+{
+  "result": "success",
+  "base_code": "USD",
+  "conversion_rates": {"USD": 1.0, "EUR": 0.927, "GBP": 0.809, "RUB": 98.45}
+}
