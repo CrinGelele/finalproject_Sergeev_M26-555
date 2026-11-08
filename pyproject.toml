@@ -1,0 +1,48 @@
+[project]
+name = "finalproject-sergeev-m26-555"
+version = "0.1.0"
+description = "ValutaTrade Hub: учебный валютный кошелёк и сервис курсов"
+readme = "README.md"
+authors = [{ name = "Сергеев Максим Александрович" }]
+requires-python = ">=3.11"
+dependencies = ["prettytable>=3.12,<4", "requests>=2.32,<3"]
+
+[project.scripts]
+valutatrade = "valutatrade_hub.cli.interface:main"
+
+[dependency-groups]
+dev = ["ruff>=0.9,<1"]
+
+[build-system]
+requires = ["hatchling>=1.26,<2"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["valutatrade_hub"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/valutatrade_hub", "/tests/*.py", "/tests/fixtures", "/demo/*.py",
+    "/demo/session.cast", "/demo/session.gif", "/data", "/main.py",
+    "/Makefile", "/README.md", "/uv.lock", "/pyproject.toml",
+    "/.python-version", "/.gitignore",
+]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 88
+extend-exclude = [".cache", ".tmp", "demo/runtime", "tests/runtime"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.valutatrade]
+DATA_DIR = "data"
+LOG_DIR = "logs"
+RATES_TTL_SECONDS = 300
+DEFAULT_BASE_CURRENCY = "USD"
+LOG_FORMAT = "json"
+LOG_LEVEL = "INFO"
+LOG_MAX_BYTES = 1048576
+LOG_BACKUP_COUNT = 3
+PARSER_INTERVAL_SECONDS = 300
