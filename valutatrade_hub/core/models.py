@@ -10,6 +10,7 @@ from datetime import UTC, datetime
 from valutatrade_hub.core.currencies import get_currency
 from valutatrade_hub.core.exceptions import InsufficientFundsError
 from valutatrade_hub.core.utils import parse_timestamp, validate_number
+from valutatrade_hub.infra.rates import RateService
 
 
 class User:
@@ -193,7 +194,7 @@ class Portfolio:
         """Оценить все ненулевые остатки по актуальным курсам."""
         get_currency(base_currency)
         if self._rate_provider is None:
-            raise ValueError("Для оценки портфеля передайте источник курсов")
+            self._rate_provider = RateService()
         return sum(
             wallet.balance * self._rate_provider.get_rate(code, base_currency)["rate"]
             for code, wallet in self._wallets.items()
