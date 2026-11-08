@@ -11,7 +11,6 @@ build/
 .env.*
 logs/
 demo/runtime/
-tests/runtime/
 
 demo/player.html
 demo/transcript.txt

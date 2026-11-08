@@ -32,7 +32,11 @@ def utc_now() -> str:
     return datetime.now(UTC).isoformat().replace("+00:00", "Z")
 
 
+#Этап 6
+
 def parse_timestamp(value: str) -> datetime:
     """Прочитать ISO-дату; старые примеры без зоны считать UTC."""
+    if not isinstance(value, str):
+        raise ValueError("Дата должна быть строкой в формате ISO")
     date = datetime.fromisoformat(value.replace("Z", "+00:00"))
     return date.replace(tzinfo=UTC) if date.tzinfo is None else date.astimezone(UTC)
