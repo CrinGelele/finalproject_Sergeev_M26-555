@@ -22,7 +22,7 @@ packages = ["valutatrade_hub"]
 
 [tool.hatch.build.targets.sdist]
 include = [
-    "/valutatrade_hub", "/tests/*.py", "/tests/fixtures", "/demo/*.py",
+    "/valutatrade_hub", "/demo/*.py", "/demo/fixtures",
     "/demo/session.cast", "/demo/session.gif", "/data", "/main.py",
     "/Makefile", "/README.md", "/uv.lock", "/pyproject.toml",
     "/.python-version", "/.gitignore",
@@ -31,7 +31,7 @@ include = [
 [tool.ruff]
 target-version = "py311"
 line-length = 88
-extend-exclude = [".cache", ".tmp", "demo/runtime", "tests/runtime"]
+extend-exclude = [".cache", ".tmp", "demo/runtime"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP"]

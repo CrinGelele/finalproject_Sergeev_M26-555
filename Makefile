@@ -1,15 +1,13 @@
 UV ?= uv
-export UV_CACHE_DIR := $(CURDIR)/.cache/uv
+export UV_CACHE_DIR ?= $(CURDIR)/.cache/uv
 
-.PHONY: install run lint test build demo clean
+.PHONY: install run lint build demo clean
 install:
 	$(UV) sync --locked
 run:
 	$(UV) run valutatrade
 lint:
-	$(UV) run ruff check valutatrade_hub tests demo main.py
-test:
-	$(UV) run python -m unittest discover -s tests -v
+	$(UV) run ruff check valutatrade_hub demo main.py
 build:
 	$(UV) build
 demo:

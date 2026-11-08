@@ -11,7 +11,7 @@ from datetime import datetime
 from pathlib import Path
 from unittest.mock import patch
 
-from tests.support import fixture_updater
+from demo.support import fixture_updater
 from valutatrade_hub.cli.interface import CLI
 from valutatrade_hub.core import usecases
 from valutatrade_hub.core.exceptions import ApiRequestError
